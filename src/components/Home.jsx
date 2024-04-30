@@ -75,7 +75,7 @@ const Home = () => {
               />
             </span>
           </p>
-          <p className="text-7xl font-bold">
+          <p className="text-4xl font-bold  md:text-7xl font-bold">
             The Fasted Delivery In{" "}
             <span className="text-red-500">Your Home</span>
           </p>
@@ -84,9 +84,7 @@ const Home = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+            and scrambled it to make a type specimen book. 
           </p>
           <button className="bg-red-500 hover:bg-red-700 mt-2 h-10 w-40 text-slate-100  font-bold rounded-md">
             ORDER NOW

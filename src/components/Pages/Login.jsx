@@ -38,7 +38,7 @@ const {LOGIN}=useContext(AuthContext)//mydata
               LOGIN(response.data.user)//mydata
               alert(response.data.message)
               setLoginData({email:"" , password:""})
-              router('/demo')
+              router('/')
               
             }
       } else {

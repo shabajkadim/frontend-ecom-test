@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 // import { FaPlus } from "react-icons/fa"
 // import { FaMinus } from "react-icons/fa"
+// import { FaTrash } from "react-icons/fa6";
 import { deleteCartItem ,incrementQty,decrementQty} from "../redux/productSlice";
 
 export const CartProduct = ({
@@ -18,7 +19,7 @@ export const CartProduct = ({
   return (
     <div className="bg-slate-200 p-2 gap-3 md:gap-5 md:flex border border-slate-300 rounded ">
       <div className="bg-white p-3 w-[220px] rounded h-[180px] overflow-hidden">
-        <img src={image} className=" w-full h-full bg-slate-white object-cover" alt="image"
+        <img src={image} className=" w-full h-full bg-slate-white object-cover" alt="cartimage"
         />
       </div>
 
@@ -29,6 +30,7 @@ export const CartProduct = ({
           </p>
           <div className="text-xl text-slate-700 hover:text-red-600 cursor-pointer" onClick={()=>dispatch(deleteCartItem(id))}>
             <i class="fa-solid fa-trash"></i>
+            {/* <FaTrash/> */}
           </div>
         </div>
         <p className=" capitalize font-medium text-slate-500 text-lg md:text-xl ">

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import loginSignUpImage from './../project-imge/login-animation.gif'
 import {Link, useNavigate} from 'react-router-dom'
-import {showProfileImage} from "../ShowProfile/showProfileImage";
 import axios from 'axios'
 
 const SignUp = () => {
@@ -10,13 +9,7 @@ const SignUp = () => {
 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const [data,setData]=useState({
-    firstname:"",
-    lastname:"",
-    email:"",
-    password:"",
-    confirmPassword:"",
-    image:""
+  const [data,setData]=useState({firstname:"",lastname:"",email:"",password:"",confirmPassword:""
   })
   console.log(data);
 
@@ -29,19 +22,6 @@ const SignUp = () => {
   };
 
 
-  
-const  handleProfileImage= async(e)=>{
-  const data=await showProfileImage(e.target.files[0])
-  // console.log(data);
-  
-  setData((prevalue)=>{
-    return{
-      ...prevalue,image:data
-    }
-  })
-}
-
-
   function handleChange(e){
     setData({...data,[e.target.name]:e.target.value})
   }
@@ -49,7 +29,7 @@ const  handleProfileImage= async(e)=>{
   async function handleSubmit(event){
     event.preventDefault()
     try{
-      if(data.firstname && data.lastname && data.email && data.password && data.confirmPassword && data.image){
+      if(data.firstname && data.lastname && data.email && data.password && data.confirmPassword ){
         if(data.password === data.confirmPassword){
           
             const response =await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/api/v1/auth/signup`,{data})
@@ -65,27 +45,23 @@ const  handleProfileImage= async(e)=>{
         }
 
       }else{
-        alert("All fields are require & also your image")
+        alert("All fields are require")
       }
       
     }catch(error){
       console.log(error);
     }
   }
+
+  
+  
   
   return (
     <div className="pt-20 bg-slate-100 min-h-0 min-h-[650px] border-4 pt-20  ">
       <div className="w-full max-w-sm m-auto mb-10 drop-shadow-md shadow-md bg-white flex flex-col p-4">
-        {/* <h1 className="text-center text-3xl font-bold pt-5">Sign Up</h1> */}
-        <div className="w-20 h-20 overflow-hidden flex m-auto  rounded-full drop-shadow-md shadow-md mb-5 mt-3 relative">
-          <img src={data.image ? data.image : loginSignUpImage} className="w-full h-full " alt="imgsingup" />
- 
-      
-        <div  className="bg-blue-900 absolute bg-opacity-50 mt-12 bt-0 h-1/2 w-full text-center cursor-pointer text-slate-100">
-        <label htmlFor="profile" className="cursor-pointer">UpLoad</label>
-        <input type={"file"} id="profile" accept="image/*" className="hidden  cursor-pointer"   onChange={handleProfileImage} />
-        </div>
-        
+
+       <div className="w-20 overflow-hidden flex m-auto  rounded-full drop-shadow-md shadow-md mb-5 mt-3">
+          <img src={loginSignUpImage} className="w-full" alt="loginimage" />
         </div>
 
        
