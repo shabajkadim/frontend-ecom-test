@@ -92,7 +92,7 @@ const AuthContextComponent=({children})=>{
 
    async function getuserData(token){
         try{
-            const response=await axios.get(`${process.env.REACT_APP_SERVER_DOMIN}/api/v1/auth/get-current-user`,{token})
+            const response=await axios.post(`${process.env.REACT_APP_SERVER_DOMIN}/api/v1/auth/get-current-user`,{token})
             // const response={data:{success:true , message:"login suucessfulr",user:{name:"shabaaj",email:"shabaaj@1234"}}}
             if(response.data.success){
                 LOGIN(response.data.user)   
