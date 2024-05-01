@@ -13,7 +13,7 @@ const Cart = () => {
     
   return (
     <>
-      <div className="pt-20 bg-slate-100 p-2:p-4 min-h-0 min-h-[650px]">
+      <div className="pt-20 w-full bg-slate-100 p-2:p-4 min-h-0 min-h-[650px]">
         <div className="text-lg md:text-3xl font-bold text-slate-600 ml-2">
           Your Cart Item{" "}
         </div>
