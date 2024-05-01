@@ -57,7 +57,7 @@ const Home = () => {
       router(`/menu/${id}`)
     }
   
-
+  console.log(process.env.REACT_APP_SERVER_DOMIN,"REACT_APP_SERVER_DOMIN");
   return (
     <div className="pt-20 bg-slate-100 min-h-0 min-h-[650px] ">
       <div className="p-2 md:p-4  md:flex">

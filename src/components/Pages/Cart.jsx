@@ -66,7 +66,7 @@ const Cart = () => {
           </div>
           :
           <>
-          <div className="flex flex-col w-96 m-auto">
+          <div className="flex flex-col w-full md:w-96 m-auto">
             <p><img src="https://bexcart.com/assets/images/empty-cart.gif" alt="emptycart"  className=""/></p>
             <p className="text-4xl font-bold  text-center">Empty Cart </p>
           </div>

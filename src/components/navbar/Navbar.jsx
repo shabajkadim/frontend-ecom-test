@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // import logo from "./../project-imge/logo.png";
 import { Link } from "react-router-dom";
 import homelogo from './../project-imge/homelogo.png'
@@ -19,6 +19,26 @@ export const Navbar = () => {
   const handleShowProfile=()=>{
     setShowProfile((prevalue=>!prevalue))
   }
+
+  useEffect(() => {
+    if (menuList) {
+      setTimeout(() => {
+        setMenuList(false);
+      }, 3000);
+    }
+    return ()=> clearTimeout(menuList);
+  }, [menuList]);
+
+  useEffect(() => {
+    if (showProfile) {
+      setTimeout(() => {
+        setShowProfile(false);
+      }, 3000);
+    }
+    return () => clearTimeout(showProfile);
+  }, [showProfile]);
+
+
 
   const handleShowMenu=()=>{
     setMenuList((prevalue=>!prevalue))
@@ -74,10 +94,10 @@ export const Navbar = () => {
 
           <div className="text-xl text-slate-600 pr-4 md:pr-2" onClick={handleShowProfile} >
             <div className="text-3xl cursor-pointer ">
-            {state?.user?.firstname ? (<p className="border-slate-900 border rounded-full shadow-rose-900 drop-shadow w-9 h-9 bg-neutral-300 text-slate-900 text-2xl  font-bold text-center white-200">{state.user.firstname.slice(0,1).toUpperCase()}</p>) : ( <p><i class="fa-regular fa-user"></i></p>)}
+            {state?.user?.firstname ? (<p className="border-slate-900 border rounded-full shadow-rose-900 drop-shadow w-9 h-9 bg-neutral-300 text-slate-900 text-2xl  font-bold text-center white-200">{state.user.firstname.slice(0,1).toUpperCase()}</p>) : ( <p> {state?.user?.firstname ? (<p className="border-slate-900 border rounded-full shadow-rose-900 drop-shadow w-9 h-9 bg-neutral-200 text-slate-900 text-2xl  font-bold text-center white-200">{state.user.firstname.slice(0,1).toUpperCase()}</p>) : ( <p><i class="fa-regular fa-circle-user"></i></p>)}</p>)}
             </div>
             {showProfile && (
-              <div  className="absolute flex flex-col mt-1 rounded right-2 bg-slate-600 text-white py-2 px-2 shadow drop-shadow">
+              <div  className="absolute flex flex-col mt-1 rounded right-2 bg-neutral-500 text-white py-2 px-2 shadow drop-shadow">
                 {state?.user?.email === process.env.REACT_APP_ADMIN_GMAIL && <Link to={'new-product'} className="whitespace-nowrap cursor-pointer">New Product</Link>}
                 
                 
