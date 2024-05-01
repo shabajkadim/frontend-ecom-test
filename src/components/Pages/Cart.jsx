@@ -19,7 +19,7 @@ const Cart = () => {
         </div>
 
         {productCartItem[0] ?
-          <div className="mt-4 ml-2 md:flex  ">
+          <div className="mt-4 w-full ml-2 md:flex  ">
             <div className="w-full max-w-3xl  ">
               {productCartItem.map((el) => {
                 return (
