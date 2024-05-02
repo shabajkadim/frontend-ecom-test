@@ -17,7 +17,7 @@ export const CartProduct = ({
 
   const dispatch=useDispatch()
   return (
-    <div className="bg-slate-200 p-2 gap-3 md:gap-5 md:flex border border-slate-300 rounded ">
+    <div className="bg-slate-200 p-2 gap-3 md:gap-5 md:flex w-full border border-slate-300 rounded ">
       <div className="bg-white p-3 w-[220px] rounded h-[180px] overflow-hidden">
         <img src={image} className=" w-full h-full bg-slate-white object-cover" alt="cartimage"
         />
